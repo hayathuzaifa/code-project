@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic layout</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+</style>
+</style>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+         .nav ul {
+             /* background-color: black; */
+              display: flex;
+              /* justify-content: center; */
+                
+
+        }
+        header::before {
+            content:"";
+            background:url('https://plus.unsplash.com/premium_photo-1675013208189-ca4357363749?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 420px;
+            z-index:-1;
+            opacity: 0.8;
+
+
+
+        }
+        header {
+            height:100%;
+            width:100%;
+        }
+ 
+        .nav ul li {
+              /* padding : 20px; */
+            list-style:none;
+            margin:20px;
+             /* text-decoration: none; */
+         
+            /* font-family: bitcount; */
+            /* font-size:larger; */
+        }
+       .nav ul li a{
+         padding : 7px;
+         list-style:none;
+         margin:10px;
+         text-decoration: none;
+          color:blanchedalmond;
+            /* font-family: bitcount; */
+            font-size:larger;
+  
+        }
+         .nav ul li a:hover{
+            /* padding : 7px; */
+            /* list-style:none; */
+            /* margin:10px; */
+             /* text-decoration: none; */
+            border: 4px solid white;
+            color:black;
+            padding: 0px 10px 0px 10px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: inset(2px 2px 2px white);
+
+            /* font-family: bitcount; */
+            /* font-size:larger; */
+         }
+        .aura{
+            /* margin:50px; */
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+            color:white;
+            border-radius :25px;
+            /* border:2px solid red; */
+            height:250px;
+        
+        }
+        .aura h1 {
+            margin:20px;
+            font-size:4em;
+           font-family: 'Courier New', Courier, monospace; 
+           /* text-shadow: ivory; */
+           color:rgb(209, 200, 188)
+        }
+        .aura p {
+            /* margin-top:2px; */
+            font-size:20px;
+            text-transform: capitalize;
+        }
+        .aura img {
+            width:20%;
+            height:190px;
+        }
+        .ma {
+            margin:30px 0px 0px 20px;
+            color:black;
+            width:300px;
+            height:350px;
+            border: 2px solid gray;
+            border-radius: 15px;
+        }
+        .ma img {
+            width:270px;
+            height: 270px;
+            margin-left:14px;
+        }
+        .ma h3 {
+            text-align: center;
+        }
+        .ma button {
+            border:2px solid grey;
+            border-radius : 13px;
+            padding:2px 5px 2px 5px;
+            margin:10px 0px 0px 100px;
+        }
+        .ma button:hover{
+            color:white;
+            background-color: grey;
+        }
+      
+        section{
+            display: flex;
+            flex-wrap:wrap;
+            gap:10px;
+        }
+        main h2 {
+            margin-top:160px;
+            text-align: center;
+        }
+        content {
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+        }
+        #application {
+            width:300px;
+            height: 300px;
+            border : 2px solid grey;
+            border-radius:100px;
+              box-shadow: outset (1px  20px 7px black);
+            margin:50px;
+            text-align: center;
+            padding-top:40px;
+             background-color: rgb(135, 128, 128);
+        
+           
+        }
+        .one {
+            font-size:larger;
+            border:2px solid grey;
+            border-radius: 40px;
+           
+        }
+        .one:hover {
+            color:black;
+           box-shadow: offset 5px 5px 10px grey;
+}
+        footer {
+            width :100%;
+            height:200px;
+        }
+        footer{
+           
+            background:url('https://plus.unsplash.com/premium_photo-1675013208189-ca4357363749?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            opacity:0.8;
+        }
+        footer #last h2{
+              width :100%;
+            height:100px;
+            padding-top: 60px;
+            font-family: 'roboto';
+        }
+   
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <ul>
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#last">Contact</a></li>
+            <li><a href="#hello">My Item</a></li>
+            <li><a href="#application">Login</a></li>
+         
+         </li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="aura">
+            <!-- <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=999&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="burger"> -->
+             <h1 class="aura farming">WELCOME<br> <b>myfavfood.com</b> </h1>
+        <p>Welcome to the best taste in the universe</p>
+       
+       
+        </div>
+          <h2 id="hello"> <b>MY ITEMS</b></h2>
+       
+
+       
+    </main>
+    <section >
+        
+        <div class="ma">
+        
+            <img src="https://media.istockphoto.com/id/1273265655/photo/burger-with-fried-chicken-meat-isolated-on-white-background.jpg?s=2048x2048&w=is&k=20&c=NlXOhAxh5FHQKk7NIqXKPGCWB0Y4zWvZ6W-5GE5iErM=" alt="burger">
+            <h3>BURGER</h3>
+            <button>ORDER NOW</button>
+        </div>
+         <div class="ma">
+        
+            <img src="https://media.istockphoto.com/id/520410807/photo/cheeseburger.jpg?s=1024x1024&w=is&k=20&c=3GtPsBcuINgJqA63XtKA2iDVbyyb7vfgrQbX7rfzZ6U=" alt="burger">
+            <h3>BURGER</h3>
+            <button>ORDER NOW</button>
+        </div>
+         <div class="ma">
+        
+            <img src="https://media.istockphoto.com/id/159008816/photo/cheeseburger-on-white.jpg?s=1024x1024&w=is&k=20&c=d-5xLPVzFHzkCKMAPSZW8BeslM3fdU5EvC2AKqJbvFY=" alt="burger">
+            <h3>BURGER</h3>
+            <button>ORDER NOW</button>
+        </div>
+         <div class="ma">
+        
+            <img src="https://media.istockphoto.com/id/1447247911/photo/big-hamburger-with-big-beef-cutlet-on-white-background.jpg?s=2048x2048&w=is&k=20&c=5FCUNhq4NtmACh7o1SX-4t69EZGq0GwmAL5t8N5CEkQ=" alt="burger">
+            <h3>BURGER</h3>
+            <button>ORDER NOW</button>
+        </div>
+         <div class="ma">
+        
+            <img src="https://media.istockphoto.com/id/1136149393/photo/burger.jpg?s=2048x2048&w=is&k=20&c=E6wq19nSrdnbqj92dyYA9eng-pBhXmA_Fwpco-SgEzs=" alt="burger">
+            <h3>Burger</h3>
+            <button>ORDER NOW</button>
+        </div>
+         <div class="ma">
+        
+            <img src="https://media.istockphoto.com/id/905492462/photo/pizza-margarita-with-mozzarella-cheese-basil-and-tomato-template-for-your-design-and-menu-of.jpg?s=2048x2048&w=is&k=20&c=6FibBnXr6FdB47DVkZIuDN-PhyCFZ3Z_Ks1L-GjV8iU=" alt="burger">
+            <h3>Margarita</h3>
+            <button>ORDER NOW</button>
+        </div>
+         <div class="ma">
+        
+            <img src="https://media.istockphoto.com/id/1494273340/photo/pizza-with-pepperoni-arugula-ketchup-tomatoes-and-cheese-in-a-plate-on-a-white-background.jpg?s=2048x2048&w=is&k=20&c=GMmPZw1epCiJuhWsW0dLFqgjxILBC6mkU-EzwCAsMeU=" alt="burger">
+            <h3>Pepperoni</h3>
+            <button>ORDER NOW</button>
+        </div>
+         <div class="ma">
+        
+            <img src="https://media.istockphoto.com/id/1327326168/photo/pizza-pepperoni-isolated-on-white-background.jpg?s=2048x2048&w=is&k=20&c=mSNIgJw_IicbjwjmAskkf6tLgM9AWfP6WwJX1oLUeT0=" alt="burger">
+            <h3>Cheesy</h3>
+            <button>ORDER NOW</button>
+        </div>
+         <div class="ma">
+        
+            <img src="https://media.istockphoto.com/id/671200808/photo/pizza-margherita-on-white-background.jpg?s=2048x2048&w=is&k=20&c=Sz9jOI7G69CcWCGtGxL5NW0CHW88AHW4CMZADglMp74=" alt="burger">
+            <h3>paneer</h3>
+            <button>ORDER NOW</button>
+        </div>
+         <div class="ma">
+        
+            <img src="https://media.istockphoto.com/id/961877294/photo/pizza.jpg?s=2048x2048&w=is&k=20&c=RR6dP8SMj2G3Iet3ZRmJXNHAoKEpqfWdn0MYVcpwQ0k=" alt="burger">
+            <h3>Pizza</h3>
+            <button>ORDER NOW</button>
+        </div>
+
+
+       
+    </section>
+    <content>
+         <div id="application">
+            <h1>Login US</h1>
+            <BR><BR>
+            <input type="text" class="one" placeholder="Enter your Username">
+            <br><bR>
+            <input type="number" class="one" placeholder="Enter your Mobile No">
+            <br><Br>
+              <input type="password" class="one" placeholder="OTP required*">
+              <BR><br>
+              <input type="submit" class="one" placeholder="submit">
+        </div>
+    </content>
+
+    <footer>
+        <div id="last">
+           <h2><b>Contact me at hayathuzaifa10@gmail.com<br>Mob NO: 9128457188<br>Made with &#x2665;  </b></h2> 
+        </div>
+    </footer>
+     
+</body>
+</html>
