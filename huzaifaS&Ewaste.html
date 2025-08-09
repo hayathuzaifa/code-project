@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart E-Waste Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --secondary: #37474f;
+            --accent: #ff5722;
+        }
+        .hello {
+            color:black;
+            background-color: #2e7d32;
+            font-size:larger;
+            
+
+        }
+        .hello:hover {
+            background-color:azure;
+            color:#2e7d32;
+            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+            /* scroll-behavior: smooth; */
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(46,125,50,0.9) 0%, rgba(55,71,79,0.9) 100%);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .blink {
+            animation: blink-animation 1.5s steps(5, start) infinite;
+        }
+        
+        @keyframes blink-animation {
+            to { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="https://placehold.co/50x50" alt="Green circular logo with a recycling symbol and leaf design" class="h-8 w-8">
+                        <span class="ml-2 text-xl font-bold text-gray-800">suggest some unique names and with logo**</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#features" class="text-gray-700 hover:text-green-700 px-3 py-2 font-medium">Features</a>
+                    <a href="#dashboard" class="text-gray-700 hover:text-green-700 px-3 py-2 font-medium">Dashboard</a>
+                    <a href="#reporting" class="text-gray-700 hover:text-green-700 px-3 py-2 font-medium">Reporting</a>
+                    <a href="#education" class="text-gray-700 hover:text-green-700 px-3 py-2 font-medium">Education</a>
+                    <button class="ml-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md font-medium transition duration-300">
+                        Login
+                    </button>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 focus:outline-none" id="mobile-menu-button">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden bg-white shadow-lg" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Features</a>
+                <a href="#dashboard" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Dashboard</a>
+                <a href="#reporting" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Reporting</a>
+                <a href="#education" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Education</a>
+                <button class="w-full block text-left px-3 py-2 rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white">
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2">
+                    <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                        Smart E-Waste Management System
+                    </h1>
+                    <p class="mt-6 text-xl max-w-3xl">
+                        Transforming electronic waste management with digital tracking, smart categorization, and sustainable solutions for campuses and communities.
+                    </p>
+                    <div class="mt-10 flex space-x-4">
+                        <a href="#dashboard" class="px-6 py-3 bg-green-500 hover:bg-green-400 rounded-md text-lg font-medium text-white transition duration-300">
+                            Get Started
+                        </a>
+                        <a href="#features" class="px-6 py-3 bg-white hover:bg-gray-100 rounded-md text-lg font-medium text-gray-800 transition duration-300">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-10 md:mt-0">
+                    <img src="https://placehold.co/600x400" alt="Hero image showing diverse electronic waste items being processed in a modern recycling facility with workers in safety gear" class="rounded-lg shadow-2xl" onerror="this.src='https://placehold.co/600x400?text=Hero+Image+Placeholder'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="stat-card bg-white p-6 rounded-lg shadow-lg border-t-4 border-green-500 transition duration-300">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-green-100 rounded-md p-3">
+                            <i class="fas fa-microchip text-green-600 text-2xl"></i>
+                        </div>
+                        <div class="ml-5">
+                            <h3 class="text-lg font-medium text-gray-900">Total E-Waste Tracked</h3>
+                            <p class="text-3xl font-bold text-gray-800 mt-2">2,847 kg</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card bg-white p-6 rounded-lg shadow-lg border-t-4 border-blue-500 transition duration-300">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-blue-100 rounded-md p-3">
+                            <i class="fas fa-recycle text-blue-600 text-2xl"></i>
+                        </div>
+                        <div class="ml-5">
+                            <h3 class="text-lg font-medium text-gray-900">Recycling Rate</h3>
+                            <p class="text-3xl font-bold text-gray-800 mt-2">78%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card bg-white p-6 rounded-lg shadow-lg border-t-4 border-orange-500 transition duration-300">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-orange-100 rounded-md p-3">
+                            <i class="fas fa-users text-orange-600 text-2xl"></i>
+                        </div>
+                        <div class="ml-5">
+                            <h3 class="text-lg font-medium text-gray-900">Active Users</h3>
+                            <p class="text-3xl font-bold text-gray-800 mt-2">642</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Comprehensive E-Waste Management Solution
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    Our platform provides end-to-end solutions for tracking, managing, and properly disposing of electronic waste.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-100 text-green-600">
+                        <i class="fas fa-qrcode text-xl"></i>
+                    </div>
+                    <h3 class="mt-6 text-lg font-medium text-gray-900">QR Code Tracking</h3>
+                    <p class="mt-2 text-base text-gray-600">
+                        Each item gets a unique QR code for complete lifecycle tracking from collection to recycling/disposal.
+                    </p>
+                    <div class="mt-4 flex justify-center">
+                        <img src="https://placehold.co/200x200" alt="Closeup of a QR code on a computer monitor with scanning animation effect" class="h-40 w-40 object-contain" onerror="this.src='https://placehold.co/200x200?text=QR+Code+Example'">
+                    </div>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600">
+                        <i class="fas fa-robot text-xl"></i>
+                    </div>
+                    <h3 class="mt-6 text-lg font-medium text-gray-900">Smart Categorization</h3>
+                    <p class="mt-2 text-base text-gray-600">
+                        AI-powered classification of e-waste into recyclable, reusable, hazardous categories with disposal recommendations.
+                    </p>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm font-medium text-gray-700">
+                            <span>Computers</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                            <div class="bg-green-600 h-2 rounded-full" style="width: 65%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm font-medium text-gray-700 mt-3">
+                            <span>Mobile Devices</span>
+                            <span>45%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 45%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm font-medium text-gray-700 mt-3">
+                            <span>Lab Equipment</span>
+                            <span>22%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                            <div class="bg-yellow-500 h-2 rounded-full" style="width: 22%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-100 text-purple-600">
+                        <i class="fas fa-calendar-alt text-xl"></i>
+                    </div>
+                    <h3 class="mt-6 text-lg font-medium text-gray-900">Scheduled Pickups</h3>
+                    <p class="mt-2 text-base text-gray-600">
+                        Automated scheduling with certified recycling vendors with real-time notifications and tracking.
+                    </p>
+                    <div class="mt-4 bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-center mb-3">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
+                                <i class="fas fa-truck text-green-600"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-gray-900">Next Pickup</p>
+                                <p class="text-sm text-gray-500">May 15, 2023 • 10:00 AM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-recycle text-blue-600"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-gray-900">Last Recycling</p>
+                                <p class="text-sm text-gray-500">April 28, 2023 • 142 kg</p>
+                            </div>
+                        </div>
+                        <button class="mt-3 w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md text-sm font-medium transition duration-300">
+                            Schedule Pickup
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-100 text-red-600">
+                        <i class="fas fa-file-alt text-xl"></i>
+                    </div>
+                    <h3 class="mt-6 text-lg font-medium text-gray-900">Compliance Reporting</h3>
+                    <p class="mt-2 text-base text-gray-600">
+                        Automated generation of compliance reports as per CPCB and E-Waste (Management) Rules.
+                    </p>
+                    <div class="mt-4">
+                        <div class="border-b border-gray-200">
+                            <nav class="flex -mb-px space-x-8">
+                                <a href="#" class="border-b-2 border-green-500 text-green-600 whitespace-nowrap py-4 px-1 text-sm font-medium">Monthly</a>
+                                <a href="#" class="border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 text-sm font-medium">Quarterly</a>
+                                <a href="#" class="border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 text-sm font-medium">Annual</a>
+                            </nav>
+                        </div>
+                        <div class="mt-2 p-4 bg-gray-50 rounded-lg">
+                            <div class="flex justify-between text-sm">
+                                <span class="font-medium">April 2023 Report</span>
+                                <button class="text-green-600 hover:text-green-800">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-yellow-100 text-yellow-600">
+                        <i class="fas fa-chalkboard-teacher text-xl"></i>
+                    </div>
+                    <h3 class="mt-6 text-lg font-medium text-gray-900">Awareness Program</h3>
+                    <p class="mt-2 text-base text-gray-600">
+                        Educational campaigns, workshops, and challenges to promote e-waste awareness and participation.
+                    </p>
+                    <div class="mt-4">
+                        <img src="https://placehold.co/300x150" alt="Group of students participating in e-waste collection event with banners and collection bins" class="rounded-lg" onerror="this.src='https: //placehold.co/300x150?text=Education+Campaign'">
+                        <div class="mt-3 bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+                            <h4 class="text-sm font-medium text-yellow-800">Upcoming Event</h4>
+                            <p class="text-sm text-yellow-700 mt-1">Campus E-Waste Collection Drive - June 5, 2023</p>
+                            <button class="mt-2 text-xs bg-yellow-100 hover:bg-yellow-200 text-yellow-800 px-2 py-1 rounded">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-100 text-indigo-600">
+                        <i class="fas fa-chart-line text-xl"></i>
+                    </div>
+                    <h3 class="mt-6 text-lg font-medium text-gray-900">Analytics Dashboard</h3>
+                    <p class="mt-2 text-base text-gray-600">
+                        Comprehensive data visualization and insights on e-waste volumes, trends, and environmental impact.
+                    </p>
+                    <div class="mt-4 bg-gray-50 p-2 rounded-lg">
+                        <img src="https://placehold.co/300x150" alt="Interactive dashboard showing charts and graphs of e-waste metrics over time" class="rounded" onerror="this.src='https: //placehold.co/300x150?text=Analytics+Dashboard'">
+                        <div class="grid grid-cols-3 gap-2 mt-2 text-center text-xs">
+                            <div class="bg-green-100 p-1 rounded">Volume</div>
+                            <div class="bg-blue-100 p-1 rounded">Categories</div>
+                            <div class="bg-purple-100 p-1 rounded">Trends</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    E-Waste Management Dashboard
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    Real-time tracking and management of all e-waste items across your organization.
+                </p>
+            </div>
+            
+            <div class="bg-gray-50 rounded-xl p-6 shadow-inner">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900">E-Waste Inventory</h3>
+                        <p class="text-sm text-gray-600">Last updated 15 minutes ago</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 flex space-x-3">
+                        <button class="px-4 py-2 bg-white border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            <i class="fas fa-filter mr-2"></i> Filter
+                        </button>
+                        <button class="px-4 py-2 bg-green-600 rounded-md text-sm font-medium text-white hover:bg-green-700">
+                            <i class="fas fa-plus mr-2"></i> Add Item
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Item ID</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date Added</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#EW-2304-0572</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Laptop</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Computer Lab, Bldg A</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Pending Pickup</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">May 2, 2023</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <a href="#" class="text-green-600 hover:text-green-900 mr-3">View</a>
+                                    <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#EW-2304-1093</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Projector</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Conference Room, Bldg C</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Assessment</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">May 5, 2023</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <a href="#" class="text-green-600 hover:text-green-900 mr-3">View</a>
+                                    <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#EW-2304-2018</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Batteries</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Biology Lab, Bldg B</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Hazardous</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">May 7, 2023</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <a href="#" class="text-green-600 hover:text-green-900 mr-3">View</a>
+                                    <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#EW-2304-3165</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Mobile Phones</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">IT Department</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                             
+                                </tr>
+                                </tbody>
+
+                                         <div class="hello">**suggest some images related to respective areas, which are vacant ,basically  this is our prototype although this is not connected to a backened<br> .... although suggest me for footer give your respective names for adding in the footer<br>Team_hack_heritage <br>!! </div>
