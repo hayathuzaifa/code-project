@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Smart E-Waste Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: rgba(63, 98, 91, 1);
+            --secondary: #059669;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f5f9;
+        }
+        
+        .form-container {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .text-blue-500 {
+            font-size:17px;
+        }
+        
+        .eco-bg {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+        
+        .input-field {
+            transition: all 0.3s ease;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .input-field:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .password-strength {
+            height: 4px;
+            background-color: #e2e8f0;
+            margin-top: 4px;
+        }
+        
+        .password-strength::after {
+            content: '';
+            display: block;
+            height: 100%;
+            width: 0%;
+            background-color: #ef4444;
+            transition: width 0.3s ease;
+        }
+        
+        .password-strength.strong::after {
+            background-color: var(--primary);
+            width: 100%;
+        }
+        
+        .password-strength.medium::after {
+            background-color: #f59e0b;
+            width: 70%;
+        }
+        
+        .password-strength.weak::after {
+            background-color: #ef4444;
+            width: 30%;
+        }
+        
+        @media (max-width: 768px) {
+            .form-container {
+                flex-direction: column;
+            }
+            
+            .illustration-section {
+                display: none !important;
+
+            }
+        }
+        .text-primary-500 {
+            font-size: larger;
+            
+           
+        }
+        .text-3xl {
+            text-align:center;
+            margin-bottom:20px;
+            /* text-decoration: underline; */
+        }
+        .text-3xl:hover {
+            text-shadow: inset 2px 1px 1px 1px #059669;
+        }
+
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="form-container bg-white flex w-full max-w-4xl">
+        <!-- Illustration Section -->
+        <div class="illustration-section w-1/2 eco-bg text-white p-8 flex flex-col justify-center items-center">
+            <div class="max-w-xs mb-8 transform transition duration-500 hover:scale-105">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/16cae90b-ee99-4ce5-8f5b-e068111efe50.png" alt="Modern e-waste recycling illustration with digital devices going green" class="rounded-lg shadow-lg" />
+            </div>
+            <h1 class="text-3xl font-bold mb-4 text-center"> E-Waste Revolution</h1>
+           
+            <div class="mt-8">
+                <div class="flex items-center mb-4">
+                    <div class="bg-white/20 rounded-full p-2 mr-3">
+                        <i class="fas fa-recycle text-white"></i>
+                    </div>
+                    <span>Eco-friendly disposal methods</span>
+                </div>
+                <div class="flex items-center mb-4">
+                    <div class="bg-white/20 rounded-full p-2 mr-3">
+                        <i class="fas fa-leaf text-white"></i>
+                    </div>
+                    <span>Track your environmental impact</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="bg-white/20 rounded-full p-2 mr-3">
+                        <i class="fas fa-award text-white"></i>
+                    </div>
+                    <span>Earn rewards for recycling</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Form Section -->
+        <div class="form-section w-1/2 p-8">
+            <div class="flex justify-end mb-6">
+                <p class="text-sm text-gray-600">Already have an account? <a href="login.html"  class="text-blue-500 font-medium">Sign in</a></p>
+            </div>
+            
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Sign Up</h2>
+           
+            <form id="signupForm">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="mb-4">
+                        <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                        <input type="text" id="firstName" class="input-field w-full px-4 py-2 rounded-lg focus:outline-none" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                        <input type="text" id="lastName" class="input-field w-full px-4 py-2 rounded-lg focus:outline-none" required>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <input type="email" id="email" class="input-field w-full px-4 py-2 rounded-lg focus:outline-none" required>
+                    <div id="emailError" class="text-red-500 text-xs mt-1 hidden">Please enter a valid email address</div>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" id="phone" class="input-field w-full px-4 py-2 rounded-lg focus:outline-none" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <div class="relative">
+                        <input type="password" id="password" class="input-field w-full px-4 py-2 rounded-lg focus:outline-none pr-10" required>
+                        <div class="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer" id="togglePassword">
+                            <i class="far fa-eye text-gray-400"></i>
+                        </div>
+                    </div>
+                    <div class="flex items-center mt-1">
+                        <div class="password-strength flex-1" id="passwordStrength"></div>
+                        <span id="strengthText" class="text-xs ml-2 font-medium">Weak</span>
+                    </div>
+                    <div class="text-xs text-gray-500 mt-1">Use 8+ characters with a mix of letters, numbers & symbols</div>
+                </div>
+                
+                <div class="mb-6">
+                    <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                    <input type="password" id="confirmPassword" class="input-field w-full px-4 py-2 rounded-lg focus:outline-none" required>
+                    <div id="passwordMatchError" class="text-red-500 text-xs mt-1 hidden">Passwords do not match</div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" class="rounded border-gray-300 text-primary-600 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50">
+                        <span class="ml-2 text-sm text-gray-700">I agree to the <a href="#" class="text-primary-600">Terms of Service</a> and <a href="#" class="text-primary-600">Privacy Policy</a></span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn-primary w-full py-3 rounded-lg text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">Get Started ➞</button>
+                
+                <div class="relative my-6">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                 
+                </div>
+                
+       
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        // Form submission
+signupForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    let isValid = true;
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailInput.value)) {
+        emailError.classList.remove('hidden');
+        isValid = false;
+    }
+
+    // Password match check
+    if (confirmPasswordInput.value !== passwordInput.value) {
+        passwordMatchError.classList.remove('hidden');
+        isValid = false;
+    }
+
+    // Terms checkbox check
+    const termsCheckbox = document.querySelector('input[type="checkbox"]');
+    if (!termsCheckbox.checked) {
+        alert('Please agree to the Terms of Service and Privacy Policy.');
+        isValid = false;
+    }
+
+    if (!isValid) return;
+
+    // Prepare form data
+    const formData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: emailInput.value,
+        phone: document.getElementById('phone').value,
+        password: passwordInput.value
+    };
+
+    try {
+        // Send data to backend
+        const response = await fetch("http://localhost:5000/api/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert("✅ Account created successfully!");
+            // Redirect to login or dashboard
+            window.location.href = "login.html";
+        } else {
+            alert("❌ Error: " + result.message);
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("⚠️ Unable to connect to the server. Please try again later.");
+    }
+});
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('password');
+            const togglePassword = document.getElementById('togglePassword');
+            const passwordStrength = document.getElementById('passwordStrength');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const passwordMatchError = document.getElementById('passwordMatchError');
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const signupForm = document.getElementById('signupForm');
+            
+            // Toggle password visibility
+            togglePassword.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.classList.replace('fa-eye', 'fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    icon.classList.replace('fa-eye-slash', 'fa-eye');
+                }
+            });
+            
+            // Check password strength
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                let strength = 0;
+                
+                // Check length
+                if (password.length >= 8) strength++;
+                
+                // Check for numbers
+                if (/\d/.test(password)) strength++;
+                
+                // Check for special characters
+                if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password)) strength++;
+                
+                // Update strength meter
+                passwordStrength.className = 'password-strength';
+                if (password.length === 0) {
+                    return;
+                }
+                
+                if (strength >= 3) {
+                    passwordStrength.classList.add('strong');
+                } else if (strength === 2) {
+                    passwordStrength.classList.add('medium');
+                } else {
+                    passwordStrength.classList.add('weak');
+                }
+            });
+            
+            // Check password match
+            confirmPasswordInput.addEventListener('input', function() {
+                if (this.value !== passwordInput.value) {
+                    passwordMatchError.classList.remove('hidden');
+                } else {
+                    passwordMatchError.classList.add('hidden');
+                }
+            });
+            
+            // Email validation
+            emailInput.addEventListener('blur', function() {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(this.value)) {
+                    emailError.classList.remove('hidden');
+                } else {
+                    emailError.classList.add('hidden');
+                }
+            });
+            
+            // Form submission
+            signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate form
+                let isValid = true;
+                
+                // Check email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value)) {
+                    emailError.classList.remove('hidden');
+                    isValid = false;
+                }
+                
+                // Check password match
+                if (confirmPasswordInput.value !== passwordInput.value) {
+                    passwordMatchError.classList.remove('hidden');
+                    isValid = false;
+                }
+                
+                // Check terms checkbox
+                const termsCheckbox = document.querySelector('input[type="checkbox"]');
+                if (!termsCheckbox.checked) {
+                    alert('Please agree to the Terms of Service and Privacy Policy.');
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // Here you would typically send the data to a server
+                    alert('Account created successfully! Redirecting...');
+                    // window.location.href = 'dashboard.html';
+                    
+                    // For demo purposes, we'll just log the data
+                    const formData = {
+                        firstName: document.getElementById('firstName').value,
+                        lastName: document.getElementById('lastName').value,
+                        email: emailInput.value,
+                        phone: document.getElementById('phone').value,
+                        password: passwordInput.value
+                    };
+                    console.log('Form data:', formData);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

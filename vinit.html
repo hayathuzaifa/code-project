@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Generator</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input {
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    canvas {
+      margin-top: 20px;
+    }
+    
+  </style>
+</head>
+<body>
+  <h2>QR Code Generator</h2>
+  <input type="text" id="laptopData" placeholder="Laptop Model ya Link">
+  <br><br>
+  <button onclick="generateQR()">Generate QR</button>
+  <button onclick="downloadQR()">Download QR</button>
+  <br>
+  <canvas id="qrCanvas"></canvas>
+
+  <script>
+    function generateQR() {
+      let data = document.getElementById("laptopData").value;
+      if (!data) {
+        alert("Please enter some text or link!");
+        return;
+      }
+      QRCode.toCanvas(document.getElementById("qrCanvas"), data, function (error) {
+        if (error) console.error(error);
+        else console.log('QR Generated!');
+      });
+    }
+
+    function downloadQR() {
+      let canvas = document.getElementById("qrCanvas");
+      let link = document.createElement("a");
+      link.download = "qr-code.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    }
+  </script>
+</body>
+</html>

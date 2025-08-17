@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js Button Interactions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <style>
+        .btn {
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
+        <div class="text-center mb-8">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/40b341a6-6032-4bb2-8457-2f9e72775679.png" alt="Modern web application interface with interaction buttons showing various backend connections" class="mx-auto rounded-lg mb-4">
+            <h1 class="text-3xl font-bold text-gray-800">Node.js API Demo</h1>
+            <p class="text-gray-600 mt-2">Connect your frontend to Node.js backend</p>
+        </div>
+
+        <div class="space-y-4">
+            <div class="btn-group flex flex-col space-y-4">
+                <!-- Simple GET Request -->
+                <button id="getDataBtn" class="btn bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg">
+                    Get Server Data (GET)
+                </button>
+
+                <!-- POST Request with Data -->
+                <button id="postDataBtn" class="btn bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg">
+                    Send Data to Server (POST)
+                </button>
+
+                <!-- File Upload (Would require form) -->
+                <button id="uploadBtn" class="btn bg-purple-500 hover:bg-purple-600 text-white font-medium py-3 px-6 rounded-lg">
+                    Upload File (POST)
+                </button>
+
+                <!-- Authentication Example -->
+                <button id="loginBtn" class="btn bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-3 px-6 rounded-lg">
+                    Login (JWT Example)
+                </button>
+
+                <!-- QR Code Generator -->
+                <button id="qrBtn" class="btn bg-red-500 hover:bg-red-600 text-white font-medium py-3 px-6 rounded-lg">
+                    Generate QR Code
+                </button>
+                <div id="qrCodeContainer" class="flex justify-center my-4 hidden"></div>
+            </div>
+
+            <div id="responseContainer" class="mt-6 p-4 bg-gray-50 rounded-lg hidden">
+                <h3 class="font-medium text-gray-700 mb-2">Server Response:</h3>
+                <pre id="responseText" class="text-sm text-gray-600 overflow-auto max-h-40 bg-white p-3 rounded"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Utility function for API calls
+        const callApi = async (url, method = 'GET', data = null) => {
+            try {
+                const options = {
+                    method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                };
+
+                if (data) {
+                    options.body = JSON.stringify(data);
+                }
+
+                const response = await fetch(url, options);
+                const result = await response.json();
+
+                // Display response
+                document.getElementById('responseText').textContent = JSON.stringify(result, null, 2);
+                document.getElementById('responseContainer').classList.remove('hidden');
+
+                return result;
+            } catch (error) {
+                console.error('API Error:', error);
+                document.getElementById('responseText').textContent = `Error: ${error.message}`;
+                document.getElementById('responseContainer').classList.remove('hidden');
+            }
+        };
+
+        // Button event listeners
+        document.getElementById('getDataBtn').addEventListener('click', async () => {
+            await callApi('/api/data');
+        });
+
+        document.getElementById('postDataBtn').addEventListener('click', async () => {
+            const sampleData = {
+                timestamp: new Date().toISOString(),
+                message: "Hello from the frontend!",
+                status: "active"
+            };
+            await callApi('/api/data', 'POST', sampleData);
+        });
+
+        document.getElementById('uploadBtn').addEventListener('click', async () => {
+            alert("Note: For file uploads, you would typically use a file input and FormData");
+            // Actual implementation would need a file input element and different handling
+        });
+
+        document.getElementById('loginBtn').addEventListener('click', async () => {
+            const credentials = {
+                username: "demo_user",
+                password: "demo_pass"
+            };
+            await callApi('/api/auth/login', 'POST', credentials);
+        });
+
+        // QR Code Generation
+        document.getElementById('qrBtn').addEventListener('click', async () => {
+            const qrContainer = document.getElementById('qrCodeContainer');
+            qrContainer.innerHTML = ''; // Clear previous QR
+            qrContainer.classList.remove('hidden');
+            
+            // You can modify this data format as needed for your e-waste system
+            const eWasteData = {
+                deviceId: "EW-" + Math.floor(Math.random() * 10000),
+                type: "Laptop",
+                location: "Lab 3B",
+                dateAdded: new Date().toISOString()
+            };
+
+            const qrData = JSON.stringify(eWasteData);
+            new QRCode(qrContainer, {
+                text: qrData,
+                width: 200,
+                height: 200,
+                colorDark: "#2e7d32", // Dark green color
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            
+            qrContainer.insertAdjacentHTML('afterend', 
+                `<p class="text-center text-sm mt-2">Device ID: ${eWasteData.deviceId}</p>`);
+        });
+    </script>
+</body>
+</html>
+
